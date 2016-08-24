@@ -1,5 +1,5 @@
 #!/bin/bash
 mkdir -p ~/.vim
 mkdir -p ~/.vim/autoload
-cp vimrc ~/.vimrc
+cat vim_setup.vim >> ~/.vimrc
 cp plug.vim ~/.vim/autoload/plug.vim
