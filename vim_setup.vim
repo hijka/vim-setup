@@ -1,5 +1,5 @@
 " VimPlug
-call plug#begin('C:/Users/adryen/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'ervandew/supertab'									" Tab completion
 Plug 'tpope/vim-surround'									" Modifying surroundings
@@ -130,7 +130,7 @@ command! Wrap132 :set tw=132 | :normal gggqG
 	map <C-n> :NERDTreeToggle<CR>
 
 " Reload vimrc in vim
-	map <leader>s :source C:\Users\adryen\_vimrc<CR>
+	map <leader>s :source ~/.vimrc<CR>
 
 " Airline colorscheme
 	let g:airline_powerline_fonts = 1
