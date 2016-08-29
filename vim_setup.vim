@@ -13,6 +13,7 @@ Plug 'tpope/vim-fugitive' 								" Git wrapper
 " Plug 'airblade/vim-gitgutter' 						" Git gutter
 Plug 'godlygeek/tabular' 									" Easy tab alignment
 Plug 'nathanaelkane/vim-indent-guides' 		" Ident guides 
+Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
@@ -23,8 +24,8 @@ command! Wrap132 :set tw=132 | :normal gggqG
 
 
 " Configuration Variables
-	set ts=2                " Default tabstop
-	set shiftwidth=2        " Set default tab width to 2
+	set ts=4                " Default tabstop
+	set shiftwidth=4        " Set default tab width to 2
 	set bs=indent,eol,start " Allow backspacing over EVERYTHING in insert mode
 	set ww=[,],<,>,h,l,b,s  " Allow movement commands to wrap
 	set scrolljump=8        " Jump 8 lines at a time when scrolling
@@ -50,6 +51,7 @@ command! Wrap132 :set tw=132 | :normal gggqG
 	set splitbelow          " Set new split below
 	set splitright          " Set new split right
 	set mouse=c 						" Remove mouse control
+	set pastetoggle=<F2>    " Toggles paste
 
 " Visual shifting (does not exit Visual Mode)
 	vnoremap < <gv
@@ -126,7 +128,7 @@ command! Wrap132 :set tw=132 | :normal gggqG
 " Nerd Tree
 	" autocmd vimenter * NERDTree 							" Auto loads NERDTree
 	autocmd StdinReadPre * let s:std_in=1
-	autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+	" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 	map <C-n> :NERDTreeToggle<CR>
 
 " Reload vimrc in vim
@@ -159,6 +161,13 @@ command! Wrap132 :set tw=132 | :normal gggqG
 	" Move to word
 	map  <Leader><Leader>w <Plug>(easymotion-bd-w)
 	nmap <Leader><Leader>w <Plug>(easymotion-overwin-w)
+
+" Ctrl P
+	nmap <Leader><Leader>p :CtrlP<CR>
+	let g:ctrlp_prompt_mappings = {
+			\ 'AcceptSelection("e")': ['<c-t>'],
+			\ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+			\ }
 
 " Putty Colorscheme
     if &term =~ "xterm"
