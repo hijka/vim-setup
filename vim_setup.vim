@@ -3,7 +3,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ervandew/supertab'									" Tab completion
 Plug 'tpope/vim-surround'									" Modifying surroundings
-Plug 'easymotion/vim-easymotion'					" Easier movements
+" Plug 'easymotion/vim-easymotion'					" Easier movements
 Plug 'raimondi/delimitmate'								" Close brackets/quotes
 Plug 'altercation/vim-colors-solarized'		" Solarized colorscheme
 Plug 'scrooloose/nerdtree'								" File navigator bar
@@ -11,9 +11,10 @@ Plug 'bling/vim-airline'									" Status line
 Plug 'morhetz/gruvbox'										" Gruvbox colorscheme
 Plug 'tpope/vim-fugitive' 								" Git wrapper
 " Plug 'airblade/vim-gitgutter' 						" Git gutter
-Plug 'godlygeek/tabular' 									" Easy tab alignment
+" Plug 'godlygeek/tabular' 									" Easy tab alignment
 Plug 'nathanaelkane/vim-indent-guides' 		" Ident guides 
-Plug 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim' 										" Buffer/window management
+Plug 'scrooloose/nerdcommenter'   				" Easy commenting
 
 call plug#end()
 
@@ -24,8 +25,8 @@ command! Wrap132 :set tw=132 | :normal gggqG
 
 
 " Configuration Variables
-	set ts=4                " Default tabstop
-	set shiftwidth=4        " Set default tab width to 2
+	set ts=2                " Default tabstop
+	set shiftwidth=2        " Set default tab width to 2
 	set bs=indent,eol,start " Allow backspacing over EVERYTHING in insert mode
 	set ww=[,],<,>,h,l,b,s  " Allow movement commands to wrap
 	set scrolljump=8        " Jump 8 lines at a time when scrolling
@@ -57,30 +58,8 @@ command! Wrap132 :set tw=132 | :normal gggqG
 	vnoremap < <gv
 	vnoremap > >gv
 
-" Remap normal mode mapping
-	nnoremap j k
-	nnoremap k j
-	nnoremap <C-H> <C-W><C-H>
-	nnoremap <C-L> <C-W><C-L>
-	nnoremap <Leader>h ^
-	nnoremap <Leader>l $
-
-" Remap visual mode mapping
-	vnoremap j k
-	vnoremap k j
-	vnoremap <Leader>h ^
-	vnoremap <Leader>l $
-
-" Remap leader key
-	nnoremap <SPACE> <Nop>
-	let mapleader = "\<Space>"
-
 " Remove highlight
 	map <Leader><Leader>h :noh<CR>
-
-" Custom moves
-	map \4 <C-D>
-	map \3 <C-U>
 
 " For when you forget to sudo, really write to the file
 	cmap w!! w !sudo tee % > /dev/null
@@ -148,6 +127,7 @@ command! Wrap132 :set tw=132 | :normal gggqG
 " Indent guide configs
 	let g:indent_guides_start_level=2
 	let g:indent_guides_guide_size=1
+
 
 " Easy motion configurations
 	" Move to line
